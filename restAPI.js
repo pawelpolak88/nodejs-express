@@ -1,5 +1,5 @@
 const express = require("express");
-const { Router } = require("express");
+const routerTest = require("./routes/test");
 
 const server = express();
 
@@ -15,16 +15,10 @@ server.use(express.json());
 //   res.status(265).send("Hello world!");
 // });
 
-// маршруты
-let route = Router();
-route.get("/", (req, res) => {
-  res.status(200).send("200 path");
-});
-
-route.post("/", (req, res) => {
-  res.status(200).send(req.body);
-});
-
-server.use("/test", route);
+if (typeof routerTest === "function") {
+  routerTest(server);
+} else {
+  console.log("Error load module routerTest: " + typeof routerTest);
+}
 
 server.listen(2364);

@@ -2,6 +2,11 @@ GET http://127.0.0.1:2364/test
 
 ###
 POST http://127.0.0.1:2364/test
+Content-Type: application/json
+
+{
+    "param1": 1
+}
 
 ###
 PUT http://127.0.0.1:2364/
