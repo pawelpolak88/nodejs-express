@@ -1,4 +1,7 @@
-GET http://127.0.0.1:2364/test
+GET http://127.0.0.1:2364/test/
+
+###
+GET http://127.0.0.1:2364/goods/
 
 ###
 POST http://127.0.0.1:2364/test

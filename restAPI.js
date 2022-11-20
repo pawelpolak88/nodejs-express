@@ -1,5 +1,6 @@
 const express = require("express");
 const routerTest = require("./routes/test");
+const dymnRoutes = require("./routes/index");
 
 const server = express();
 
@@ -15,8 +16,8 @@ server.use(express.json());
 //   res.status(265).send("Hello world!");
 // });
 
-if (typeof routerTest === "function") {
-  routerTest(server);
+if (typeof dymnRoutes === "function") {
+  dymnRoutes(server);
 } else {
   console.log("Error load module routerTest: " + typeof routerTest);
 }
