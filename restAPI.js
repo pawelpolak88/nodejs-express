@@ -1,5 +1,5 @@
 const express = require("express");
-const routerTest = require("./routes/test");
+const routerTest = require("./routes/users");
 const dymnRoutes = require("./routes/index");
 
 const server = express();

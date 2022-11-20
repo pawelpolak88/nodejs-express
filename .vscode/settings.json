@@ -1,0 +1,10 @@
+{
+    "rest-client.environmentVariables": {
+        "ENV Develop": {
+            "hostname": "http://localhost:2364"
+        },
+        "ENV test": {
+            "hostname": "http://localhost:9559"
+        },
+    }
+}

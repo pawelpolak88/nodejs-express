@@ -1,7 +1,14 @@
-const e = require("express");
 const fs = require("fs");
 const path = require("path");
 const { compareString, compareStringInArray } = require("../utils/compare");
+const { Router } = require("express");
+
+// // маршруты
+// let route = Router();
+
+const showErrorLoadingModule = (fileName, errorMessage) => {
+  console.log(`🔴 not load route: ${fileName} error - "${errorMessage}"`);
+};
 
 const def = (server) => {
   let notProcessed = ["index.js"];
@@ -15,15 +22,23 @@ const def = (server) => {
 
   data.forEach((file) => {
     const fileRoute = require("./" + file);
-    const moduleName = path.basename(file, ".js");
+    const moduleName = path.basename(file, ".js").toLowerCase();
 
     if (typeof fileRoute === "function") {
-      console.log(`🟢 route: ${moduleName}`);
-      fileRoute(server);
+      try {
+        // fileRoute(server, `/${moduleName}`);
+        let route = Router();
+
+        fileRoute(route);
+
+        server.use(`/${moduleName}`, route);
+
+        console.log(`🟢 route: ${moduleName}`);
+      } catch (error) {
+        showErrorLoadingModule(file, error.message);
+      }
     } else {
-      console.log(
-        `🔴 not load route: ${file} because not "module.export" function `
-      );
+      showErrorLoadingModule(file, `not 'module.export' function`);
     }
   });
 };

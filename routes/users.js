@@ -1,7 +1,7 @@
 const get = (req, res) => {
   res.status(200).send([
-    { id: 1, caption: "good 1" },
-    { id: 2, caption: "good 2" },
+    { id: 1, caption: "user 1" },
+    { id: 2, caption: "user 2" },
   ]);
 };
 
