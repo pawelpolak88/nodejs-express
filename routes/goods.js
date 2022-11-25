@@ -1,4 +1,4 @@
-const get = (req, res) => {
+const getReq = (req, res) => {
   res.status(200).send([
     { id: 1, caption: "good 1" },
     { id: 2, caption: "good 2" },
@@ -7,7 +7,7 @@ const get = (req, res) => {
 
 const def = (route) => {
   if (route) {
-    route.get("/", get);
+    route.get("/", getReq);
   }
 };
 
