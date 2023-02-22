@@ -3,9 +3,6 @@ const path = require("path");
 const { compareString, compareStringInArray } = require("../utils/compare");
 const { Router } = require("express");
 
-// // маршруты
-// let route = Router();
-
 const showErrorLoadingModule = (fileName, errorMessage) => {
   console.log(`🔴 not load route: ${fileName} error - "${errorMessage}"`);
 };

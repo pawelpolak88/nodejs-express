@@ -5,10 +5,8 @@ const getReq = (req, res) => {
   ]);
 };
 
-const def = (route) => {
+module.exports = (route) => {
   if (route) {
     route.get("/", getReq);
   }
 };
-
-module.exports = def;
